@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "author": "Hunter Chang",
   "dependencies": {
+    "emailjs-com": "^2.3.2",
     "gatsby": "^2.2.9",
     "gatsby-plugin-manifest": "^2.0.24",
     "gatsby-plugin-offline": "^2.0.25",

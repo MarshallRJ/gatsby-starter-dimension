@@ -1,9 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import * as emailjs from 'emailjs-com'
 
 import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
+
+emailjs.init(process.env.GATSBY_EMAIL_JS_ID);
 
 class Main extends React.Component {
 
@@ -28,10 +31,19 @@ class Main extends React.Component {
 		if (!name) {
 			window.alert('Please fill in your name');
 		} else {
-			let emailContent = `subject=please contact ${name} on ${email}&body=${message}`;
+			
+      var template_params = {
+      	"reply_to": email,
+      	"from_name": name,
+      	"to_name": 'consule',
+      	"message_html": `${message} <br><br> ${email}`
+      }
 
-			window.open(`mailto:lily.marshall@consule.co.za?${emailContent}`, '_blank');
-			this.props.onCloseArticle();
+      var service_id = "default_service";
+      var template_id = "template_JmKTvpkq";
+      emailjs.send(service_id, template_id, template_params);
+      
+      this.props.onCloseArticle();
 		}
 	}
 
