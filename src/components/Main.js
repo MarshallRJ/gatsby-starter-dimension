@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import * as emailjs from 'emailjs-com'
+import { toast, ToastContainer } from 'react-toastify';
 
 import pic01 from '../images/pic01.jpg'
 import pic02 from '../images/pic02.jpg'
@@ -28,22 +29,26 @@ class Main extends React.Component {
 		if (e)
 			e.preventDefault();
 		const { name, email, message } = this.state;
-		if (!name) {
-			window.alert('Please fill in your name');
-		} else {
-			
-      var template_params = {
-      	"reply_to": email,
-      	"from_name": name,
-      	"to_name": 'consule',
-      	"message_html": `${message} <br><br> ${email}`
-      }
+		if (!name)
+			return toast.error('Please fill in your name');
+		else if (!email)
+			return toast.error('Please fill in your email');
+		else if (!message)
+			return toast.error('Please fill the message');
+		else {
 
-      var service_id = "default_service";
-      var template_id = "template_JmKTvpkq";
-      emailjs.send(service_id, template_id, template_params);
-      
-      this.props.onCloseArticle();
+			var template_params = {
+				"reply_to": email,
+				"from_name": name,
+				"to_name": 'consule',
+				"message_html": `${message} <br><br> ${email}`
+			}
+
+			var service_id = "default_service";
+			var template_id = "template_JmKTvpkq";
+			emailjs.send(service_id, template_id, template_params);
+
+			this.props.onCloseArticle();
 		}
 	}
 
@@ -62,7 +67,6 @@ class Main extends React.Component {
 
 		return (
 			<div ref={this.props.setWrapperRef} id="main" style={this.props.timeout ? {display: 'flex'} : {display: 'none'}}>
-
         <article id="intro" className={`${this.props.article === 'intro' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Intro</h2>
           <span className="image main"><img src={pic01} alt="" /></span>
