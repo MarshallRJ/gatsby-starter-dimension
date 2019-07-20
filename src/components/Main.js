@@ -28,7 +28,7 @@ class Main extends React.Component {
 		if (!name) {
 			window.alert('Please fill in your name');
 		} else {
-			let emailContent = `subject=please contact ${name}&body=${message}`;
+			let emailContent = `subject=please contact ${name} on ${email}&body=${message}`;
 
 			window.open(`mailto:lily.marshall@consule.co.za?${emailContent}`, '_blank');
 			this.props.onCloseArticle();
