@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-dimension-v2",
-  "description": "Gatsby Starter - Dimension V2",
-  "version": "1.0.0",
+  "name": "consule-about-site",
+  "description": "Consule about webstie",
+  "version": "0.0.1",
   "author": "Hunter Chang",
   "dependencies": {
     "gatsby": "^2.2.9",
