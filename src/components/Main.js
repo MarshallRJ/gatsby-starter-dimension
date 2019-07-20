@@ -14,7 +14,11 @@ class Main extends React.Component {
 	state = {
 		email: "",
 		message: "",
-		name: ""
+		name: "",
+		phoneStart: "+27 73 613",
+		phoneEnd: " 5968",
+		mailMeStart: "lily.marshall@",
+		mailMeEnd: "consule.co.za",
 	}
 
 	onChange = (e) => {
@@ -60,7 +64,15 @@ class Main extends React.Component {
 
 	render() {
 
-		let { email, name, message } = this.state;
+		let {
+			email,
+			name,
+			message,
+			phoneEnd,
+      phoneStart,
+      mailMeStart,
+      mailMeEnd
+		} = this.state;
 
 		let close = <div className="close" onClick={() => {this.props.onCloseArticle()}}></div>
 
@@ -98,6 +110,14 @@ class Main extends React.Component {
 
         <article id="contact" className={`${this.props.article === 'contact' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
           <h2 className="major">Contact</h2>
+          <div className="field half first">
+            <h3 className="icon fa-phone"><a href={`tel:${phoneStart}${phoneEnd}`}>{`${phoneStart}${phoneEnd}`}</a></h3>
+          </div>
+           <div className="field half">
+            <h3 className="icon fa-envelope"><a href={`mailto:${mailMeStart}${mailMeEnd}`}>{`${mailMeStart}${mailMeEnd}`}</a></h3>
+          </div>
+          <p></p>
+          <h2 className="major">Leave us a message</h2>
           <form onSubmit={this.oneEmail} onReset={this.onReset}>
             <div className="field half first">
               <label htmlFor="name">Name</label>
@@ -117,10 +137,7 @@ class Main extends React.Component {
             </ul>
           </form>
           <ul className="icons">
-            <li><a href="#" className="icon fa-twitter"><span className="label">Twitter</span></a></li>
-            <li><a href="#" className="icon fa-facebook"><span className="label">Facebook</span></a></li>
-            <li><a href="#" className="icon fa-instagram"><span className="label">Instagram</span></a></li>
-            <li><a href="#" className="icon fa-github"><span className="label">GitHub</span></a></li>
+            <li><a href="https://web.facebook.com/Consulez/" className="icon fa-facebook"><span className="label">Facebook</span></a></li> 
           </ul>
           {close}
         </article>
