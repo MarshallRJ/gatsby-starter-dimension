@@ -76,10 +76,16 @@ class Main extends React.Component {
         </article>
 
         <article id="work" className={`${this.props.article === 'work' ? 'active' : ''} ${this.props.articleTimeout ? 'timeout' : ''}`} style={{display:'none'}}>
-          <h2 className="major">Work</h2>
+          <h2 className="major">What we do</h2>
           <span className="image main"><img src={pic02} alt="" /></span>
-          <p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-          <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
+          <h3>Carbon Consulting</h3>
+          <p>We do annual Carbon Footprint Calculations and reports with practical solutions to assist with improved on energy consumption. We also do long term Carbon Footprint Project implementation and management.</p>
+          <h3>QMS Implementation, improvement and management</h3>
+          <p>We assist Agri - businesses with GMPs, HACCP, ISO implementation, improvement and maintenance.We also provide pre - audit assistance.</p>
+          <h3>Training and awareness</h3>
+          <p>We provide workshops
+          for organisations on better carbon footprint management strategies and behaviour change
+          for employees and students. </p>
           {close}
         </article>
 
